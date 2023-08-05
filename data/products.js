@@ -656,5 +656,21 @@ const products = [
       "apparel",
       "mens"
     ]
-  }
+  },{
+    id: "26216yuweiuydiwuydiwu1213-2313",
+    image: "images/products/umbrella.jpg",
+    name: "Umbrella",
+    rating: {
+      stars: 5,
+      count: 31
+    },
+    priceCents: 1895,
+    keywords: [
+      "rain",
+      "unisex",
+      "man",
+      "woman"
+    ]
+  }, 
+  
 ];
