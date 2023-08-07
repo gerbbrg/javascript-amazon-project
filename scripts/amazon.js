@@ -90,9 +90,7 @@ document.querySelectorAll('.js-add-to-cart')
      addToCart (productId);
     updateCartQuantity();
     addedToCart(productId);   
-    
-      console.log(cartQuantity);
-      console.log(cart);
+
     })
 })
 
