@@ -5,6 +5,7 @@ updateCartQuantity('.js-checkout-quantity');
 updateCartQuantity('.js-items-quantity');
 let cartSummaryHTML = '';
 const itemsSummaryArr = [];
+const shippingSummArr = [];
 function sumArray(array) {
     let sum = 0;
     array.forEach(num => {
@@ -75,7 +76,7 @@ products.forEach((product)=>{
                     </div>
                     <div class="delivery-option js-delivery-option">
                     <input type="radio" checked
-                        class="delivery-option-input js-delivery-option-${matchingProduct.id}"
+                        class="delivery-option-input js-delivery-option-free"
                         name="delivery-option-${matchingProduct.id}">
                     <div>
                         <div class="delivery-option-date">
@@ -88,7 +89,7 @@ products.forEach((product)=>{
                     </div>
                     <div class="delivery-option js-delivery-option">
                     <input type="radio"
-                        class="delivery-option-input js-delivery-option-${matchingProduct.id}"
+                        class="delivery-option-input js-delivery-option-499"
                         name="delivery-option-${matchingProduct.id}">
                     <div>
                         <div class="delivery-option-date">
@@ -101,7 +102,7 @@ products.forEach((product)=>{
                     </div>
                     <div class="delivery-option js-delivery-option">
                     <input type="radio"
-                        class="delivery-option-input js-delivery-option-${matchingProduct.id}"
+                        class="delivery-option-input js-delivery-option-999"
                         name="delivery-option-${matchingProduct.id}">
                     <div>
                         <div class="delivery-option-date">
@@ -125,10 +126,26 @@ console.log(itemsSummaryArr);
 
 //order-summary---------------------------------------------------------------------
 let itemsSummary= sumArray(itemsSummaryArr);
-let shippingSummary = 499;
+let shippingSummary = sumArray(shippingSummArr);
 let beforeTaxSummary = itemsSummary + shippingSummary;
 let taxSummary = beforeTaxSummary * 0.1;
 let totalSummary = beforeTaxSummary + taxSummary;
+let shippingSummaryItem;
+if (document.querySelector('.js-delivery-option-free')){
+    shippingSummaryItem===0;
+    shippingSummArr.push(shippingSummaryItem);
+    saveToStorage();
+}
+else if (document.querySelector('.js-delivery-option-499')){
+    shippingSummaryItem===499;
+    shippingSummArr.push(shippingSummaryItem);
+    saveToStorage();
+}
+else if (document.querySelector('.js-delivery-option-free')){
+    shippingSummaryItem===999;
+    shippingSummArr.push(shippingSummaryItem);
+    saveToStorage();
+}
 
 document.querySelector('.js-items-summary').innerHTML = formatCurrency(itemsSummary);
 document.querySelector('.js-shipping-summary').innerHTML = formatCurrency(shippingSummary);
@@ -183,7 +200,8 @@ document.querySelectorAll('.js-save-link').forEach((link)=>{
 
 console.log(sumArray(itemsSummaryArr));
 
-
+console.log(updateCartQuantity('.js-checkout-quantity'));
+console.log(updateCartQuantity('.js-items-quantity'));
 
 
 

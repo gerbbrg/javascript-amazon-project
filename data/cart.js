@@ -15,7 +15,10 @@ export function updateCartQuantity(targetSelector) {
   cart.forEach((cartItem) => {
       cartQuantity += cartItem.quantity;
   });
-  document.querySelector(targetSelector).innerHTML = cartQuantity;
+  const targetElement = document.querySelector(targetSelector);
+  if (targetElement){
+    targetElement.innerHTML = cartQuantity
+  }
   saveToStorage();
 }
 export function updateQuantity(productId, newQuantity) {
